@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Simple API
+
+Globals:
+  Function:
+    Runtime: nodejs6.10
+    Handler: index.handler
+    Role: testRole
+    Policies: testPolicies
+    FunctionName: testFunction
+    Events: testEvents
+
+Resources:
+  HelloFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: HelloFunction
+      Events:
+        Hello:
+          Type: Api
+          Properties:
+            Path: /
+            Method: GET
+            RestApiId: !Ref HelloApi
+
+  HelloApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: hello-api
+      StageName: Prod
+      DefinitionBody:
+        swagger: 2.0
+        paths:
+          /:
+            get:
+              x-amazon-apigateway-integration:
+                uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:HelloFunction/invocations
+                httpMethod: "POST"
+                type: "aws_proxy"
