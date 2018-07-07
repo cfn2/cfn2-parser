@@ -54,3 +54,15 @@ Resources:
                 uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:HelloFunction/invocations
                 httpMethod: "POST"
                 type: "aws_proxy"
+
+Outputs:
+  Api:
+    Description: api
+    Value: !Ref HelloApi
+    Export:
+      Name: Api
+  AccountId:
+    Description: accountId
+    Value: !Ref AWS::AccountId
+    Export:
+      Name: AccountId

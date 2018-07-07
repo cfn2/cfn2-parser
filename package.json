@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
-    "declarative-traverser": "0.0.1"
+    "declarative-traverser": "^0.1.0"
   },
   "devDependencies": {
     "cfn-read-template": "0.0.2",
