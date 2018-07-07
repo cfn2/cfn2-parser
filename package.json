@@ -1,6 +1,6 @@
 {
   "name": "cfn-parser",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "CloudFormation template parser",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
