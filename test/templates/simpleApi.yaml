@@ -2,6 +2,11 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Simple API
 
+Parameters:
+  TimeoutValue:
+    Type: Number
+    Default: 10
+
 Globals:
   Function:
     Runtime: nodejs6.10
@@ -9,7 +14,7 @@ Globals:
     CodeUri: .
     Description: test
     MemorySize: 128
-    Timeout: 3
+    Timeout: !Ref TimeoutValue
     Environment:
       Variables:
         TEST: test

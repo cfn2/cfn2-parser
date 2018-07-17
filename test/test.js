@@ -4,7 +4,7 @@ const { makeTemplateParser } = require('..');
 
 loadTemplates(({ simpleApi }) => {
   test('test parseTemplate', t => {
-    t.plan(4);
+    t.plan(5);
 
     const context = {
       Parameters: {
@@ -31,6 +31,7 @@ loadTemplates(({ simpleApi }) => {
 
       t.deepEqual(Object.keys(context.Resources),
         [ 'HelloApi', 'HelloFunction' ]);
+      t.equal(context.Globals.Function.Timeout, 10);
     });
   });
 });
