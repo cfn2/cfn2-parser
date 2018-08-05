@@ -26,8 +26,10 @@ parser(template, context, callback)
 ```
 
 - `template`
+  - An object of CloudFormation template.
 - `context`
 - `callback(err, context)`
+  - A function that is called when parsing template is completed, or an error occurs.
 
 ## License
 
