@@ -3,6 +3,7 @@ const { readTemplate } = require('cfn-read-template');
 exports.loadTemplates = callback => {
   const files = [
     'errProhibitedProperty',
+    'implicitApi',
     'simpleApi',
   ];
 
