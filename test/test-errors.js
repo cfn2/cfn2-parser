@@ -1,10 +1,12 @@
 const test = require('tape');
-const { loadTemplates } = require('./templates');
+const { readTemplate } = require('cfn-read-template');
 const { makeTemplateParser } = require('..');
 
-loadTemplates(({ errProhibitedProperty }) => {
-  test('test parseTemplate: errProhibitedProperty', t => {
-    t.plan(6);
+test('test parseTemplate: errors', t => {
+  t.plan(7);
+
+  readTemplate(`${__dirname}/test-errors.yaml`, (err, template) => {
+    t.error(err);
 
     const context = {
       Parameters: {
@@ -17,7 +19,7 @@ loadTemplates(({ errProhibitedProperty }) => {
       },
     };
 
-    makeTemplateParser()(errProhibitedProperty, context, (err, result) => {
+    makeTemplateParser()(template, context, (err, result) => {
       t.ok(err);
 
       t.equal(context.errors.length, 4);

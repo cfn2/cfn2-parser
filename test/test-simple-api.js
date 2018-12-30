@@ -1,10 +1,12 @@
 const test = require('tape');
-const { loadTemplates } = require('./templates');
+const { readTemplate } = require('cfn-read-template');
 const { makeTemplateParser } = require('..');
 
-loadTemplates(({ simpleApi }) => {
-  test('test parseTemplate: simpleApi', t => {
-    t.plan(5);
+test('test parseTemplate: simple-api', t => {
+  t.plan(6);
+
+  readTemplate(`${__dirname}/test-simple-api.yaml`, (err, template) => {
+    t.error(err);
 
     const context = {
       Parameters: {
@@ -26,7 +28,7 @@ loadTemplates(({ simpleApi }) => {
           t.equal(dataRef.data.Type, 'AWS::Serverless::Function');
         },
       },
-    })(simpleApi, context, (err, result) => {
+    })(template, context, (err, result) => {
       t.error(err);
 
       t.deepEqual(Object.keys(context.Resources),

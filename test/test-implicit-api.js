@@ -1,10 +1,12 @@
 const test = require('tape');
-const { loadTemplates } = require('./templates');
+const { readTemplate } = require('cfn-read-template');
 const { makeTemplateParser } = require('..');
 
-loadTemplates(({ implicitApi }) => {
-  test('test parseTemplate: implicitApi', t => {
-    t.plan(8);
+test('test parseTemplate: implicit-api', t => {
+  t.plan(9);
+
+  readTemplate(`${__dirname}/test-implicit-api.yaml`, (err, template) => {
+    t.error(err);
 
     const context = {
       Parameters: {
@@ -26,7 +28,7 @@ loadTemplates(({ implicitApi }) => {
           t.equal(dataRef.data.Type, 'AWS::Serverless::Function');
         },
       },
-    })(implicitApi, context, (err, result) => {
+    })(template, context, (err, result) => {
       t.error(err);
 
       t.deepEqual(Object.keys(context.Resources),
