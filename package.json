@@ -11,7 +11,7 @@
     "declarative-traverser": "^0.1.0"
   },
   "devDependencies": {
-    "cfn-read-template": "0.0.2",
+    "@cfn2/read-template": "^0.1.0",
     "tape": "^4.10.1"
   },
   "homepage": "https://github.com/cfn2/cfn2-parser",

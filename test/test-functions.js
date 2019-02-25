@@ -1,5 +1,5 @@
 const test = require('tape');
-const { readTemplate } = require('cfn-read-template');
+const { readTemplate } = require('@cfn2/read-template');
 const { makeTemplateParser } = require('..');
 
 test('test parseTemplate: functions', t => {
