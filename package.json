@@ -1,20 +1,20 @@
 {
-  "name": "cfn-parser",
+  "name": "@cfn2/parser",
   "version": "0.1.4",
   "description": "CloudFormation template parser",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
-    "url": "https://github.com/nak2k/node-cfn-parser/issues"
+    "url": "https://github.com/cfn2/cfn2-parser/issues"
   },
   "dependencies": {
-    "chalk": "^2.4.1",
+    "chalk": "^2.4.2",
     "declarative-traverser": "^0.1.0"
   },
   "devDependencies": {
     "cfn-read-template": "0.0.2",
-    "tape": "^4.9.1"
+    "tape": "^4.10.1"
   },
-  "homepage": "https://github.com/nak2k/node-cfn-parser",
+  "homepage": "https://github.com/cfn2/cfn2-parser",
   "keywords": [
     "aws",
     "cloudformation"
@@ -23,7 +23,7 @@
   "main": "lib",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nak2k/node-cfn-parser.git"
+    "url": "git+https://github.com/cfn2/cfn2-parser.git"
   },
   "scripts": {
     "prepublishOnly": "npm test",
