@@ -1,11 +1,11 @@
-# cfn-parser
+# @cfn2/parser
 
 CloudFormation template parser.
 
 ## Installation
 
 ```
-npm i cfn-parser
+npm i @cfn2/parser
 ```
 
 ## makeTemplateParser(options = {})
